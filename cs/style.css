@@ -1,0 +1,310 @@
+input[type = "file"]{
+  display: none;
+}
+h1{
+  font-size: 36px;
+}
+.container{
+  margin: 50px auto;
+}
+.container .fileContainer{
+  padding: 50px;
+  background: #efefef;
+  border: 2px dotted #ccc;
+  display: inline-block;
+}
+
+#myChart{
+  width: 80% !important;
+  height: 450px !important;
+  margin-left: 10%;
+}
+body,html{
+  font-family: 'Noto Sans', sans-serif;
+  height: 100%;
+  width: 100%;
+}
+input[type = "checkbox"]#create-project,input[type = "checkbox"]#create-folder, .overlay .overlay-container .dropdown input[type = "checkbox"]{
+  display: none;
+}
+header{
+  box-shadow: 2px 0px 4px #555;
+  background: #4285f4;
+  float: left;
+  width:100%;
+}
+header .logo{
+  float: left;
+  margin: 10px;
+  font-size: 18px;
+  color: #fff;
+  margin-top: 15px;
+}
+header nav{
+  float: right;
+}
+header nav ul li{
+  float: left;
+  margin: 5px 20px;
+}
+header nav ul li.btn{
+  text-decoration: none;
+  border-radius: 2px;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+header nav ul li.btn.primary{
+  border: 1px solid #fff
+  /*box-shadow: 2px 0px 5px #555;*/
+}
+
+/*main section*/
+
+section.main{
+  width: 100%;
+  height: calc(100% - 50px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/*left pane*/
+
+section.main aside.left{
+  width: 250px;
+  height: 100%;
+  overflow: auto;
+  float: left;
+  background: #efefef;
+  position: relative;
+}
+section.main aside.left input[type = 'checkbox'], section.main aside.left .f_container input[type = 'radio']{
+  display: none;
+}
+section.main aside.left .new-folder{
+  padding: 5px 0;
+  text-align: center;
+  width: 90%;
+  margin-left: 5%;
+  margin: 10px 0;
+  font-size: 14px;
+}
+section.main aside.left .new-folder label{
+  padding: 5px 10px;
+  border: 1px solid #777;
+  background: #e5e5e5;
+  border-radius: 2px;
+}
+section.main aside.left .folder,section.main aside.left .project, .dropdown .folder{
+  padding: 5px 0;
+  padding-left: 5px;
+  margin-top: 5px;
+  float: left;
+  font-size: 14px;
+  width: 100%;
+  cursor: pointer;
+}
+section.main aside.left .project.active{
+  background: #ccc;
+}
+section.main aside.left .folder.active {
+  
+}
+section.main aside.left .folder:before, .dropdown .folder:before{
+  content: '►';
+}
+section.main aside.left .folder-container, .dropdown .folder-container{
+  height: 0 !important;
+  overflow: hidden;
+}
+section.main aside.left .folder.active, .dropdown .folder.active{
+  background: #58ccbc;
+  color: #fff;
+}
+section.main aside.left .folder.active:before, .dropdown .folder.active:before{
+    content: '►';
+    color: #fff;
+}
+section.main aside.left input[type = 'checkbox']:checked + label.folder + .folder-container, .overlay .overlay-container .dropdown input[type = 'checkbox']:checked + label.folder + .folder-container{
+  height: auto !important;
+  padding: 5px;
+  margin: 5px 0 5px 5px;
+}
+section.main aside.left input[type = 'checkbox']:checked + label.folder:before, .overlay .overlay-container .dropdown input[type = 'checkbox']:checked + label.folder:before{
+  content: '▼';
+}
+
+/*central pane*/
+
+section.main aside.mid{
+  height: 100%;
+  width: calc(100% - 260px);
+  border-right: 1px solid #efefef;
+  float: left;
+  text-align: center;
+
+}
+section.main aside.mid nav{
+  padding: 5px 0;
+  border-radius: 2px;
+  display: inline;
+  padding: 8px 0;
+  border-bottom: 1px solid #e6e6e6;
+  border-radius: 2px;
+  display: inline;
+  margin-top: 10px;
+  float: left;
+  width: 100%;
+}
+section.main aside.mid nav label{
+  padding: 5px 10px;
+  color: #777;
+  display: inline;
+}
+section.main aside.mid nav input[type = "radio"]{
+  display: none;
+}
+section.main aside.mid nav input[type = "radio"]:checked + label{
+  background: #58ccbc;
+  color: #fff;
+}
+section.main aside.mid .content{
+  width: 100%;
+}
+section.main aside.mid table{
+  font-size: 14px;
+  text-align: left;
+  width: 95%;
+  overflow: auto;
+}
+section.main aside.mid .content .table-content{
+  width: 100%;
+  overflow: auto;
+}
+section.main aside.mid table td{
+  padding: 7px;
+}
+section.main aside.mid table tr{
+  border-bottom: 1px solid #ccc;
+}
+
+
+/*right pane*/
+
+section.main aside.right{
+  height: 100%;
+  width: 250px;
+  background: #f5f5f5;
+  float: left;
+}
+section.main aside.right ul li{
+  margin: 10px 0;
+}
+section.main aside.right ul li input[type = "radio"]{
+  display: none;
+}
+section.main aside.right ul li label{
+  padding: 2px 5px;
+  margin: 5px 0;
+  color: #777;
+}
+section.main aside.right ul li input[type = 'radio']:checked + label {
+  border-left: 3px solid #58ccbc;
+}
+
+/*overlay*/
+#create-project:checked ~ .overlay,  #create-project:checked ~ .overlay .new-project, #create-folder:checked ~ .overlay,  #create-folder:checked ~ .overlay .new-folder{
+  display: block;
+}
+
+.overlay{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.overlay #close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.overlay .overlay-container{
+  width: 450px;
+  padding: 20px;
+  border-radius: 2px;
+  background: #fff;
+  position: absolute;
+  margin-left: calc(100% - 950px);
+  margin-top: 3%;
+  display: none;
+}
+.overlay .overlay-container form {
+  padding: 20px 0;
+}
+.overlay .overlay-container form  h2{
+  font-size: 18px;
+}
+.overlay .overlay-container form span{
+  font-size: 14px;
+  padding: 5px 0;
+  float: left;
+  color: #555;
+  display: block;
+}
+.overlay .overlay-container form input{
+  padding: 5px 0 5px 5px;
+  border-radius: 2px;
+  width: 450px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  margin: 10px 0;
+}
+.overlay .overlay-container form input[type = "submit"] {
+  background: #4285f4;
+  color: #fff;
+  border: none;
+  padding: 10px 0;
+}
+.overlay .overlay-container form select{
+  width: 450px;
+}
+.overlay .overlay-container form .input_type_text{
+  width: 440px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  background: #fff;
+  height: 18px;
+  float: left;
+}
+.overlay .overlay-container .dropdown{
+  width: 420px;
+  background: #fff;
+  height: 0;
+  overflow: hidden;
+  float: left;
+}
+input#folder_for_new_project:checked + label + .dropdown{
+  height: auto;
+  max-height: 200px;
+  overflow: auto;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-top: 0px;
+}
+.overlay .overlay-container form input[type = "file"]{
+  display: none;
+}
+.overlay .overlay-container form label.input_type_file{
+  width: 450px;
+  padding: 50px 0;
+  background: #efefef;
+  border: 2px dashed #aaa;
+  margin: 15px 0;
+  float: left;
+  text-align: center;
+}
