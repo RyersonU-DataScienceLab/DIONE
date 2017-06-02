@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dione</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="cs/reset.css">
+    <link rel="stylesheet" href="cs/style.css">
+  </head>
+  <body>
+    <input type="checkbox" name="new_project" value="" id = "create-project">
+    <input type="checkbox" name="new_folder" value="" id = "create-folder">
+    <header>
+      <div class="logo">
+        DIONE
+      </div>
+      <nav>
+        <ul>
+          <!-- <li class = "btn ghost"><a href="#">Load Project</a></li> -->
+          <label for="create-project">
+            <li class = "btn primary">Create Project</li>
+          </label>
+        </ul>
+      </nav>
+    </header>
+    <section class = "main">
+      <aside class="left folder-arch">
+        <div class="new-folder">
+          <label for="create-folder">
+            + Folder
+          </label>
+        </div>
+        <div class="f_container" id = "f_1">
+          <input type="checkbox" name = "folder" value = "1" id = "1" checked>
+          <label for = "1" class="folder">
+            Root
+          </label>
+          <div class="folder-container">
+
+          </div>
+        </div>
+      </aside>
+      <aside class="mid">
+        <nav>
+          <!-- <input type="radio" name="type" value="chart" id = "chart" checked onclick = "updateview(this.value)">
+          <label for="chart" onclick = "">Chart</label>
+          <input type="radio" name="type" value="table" id = "table" onclick = "updateview(this.value)">
+          <label for="table">Table</label> -->
+          <input type="radio" name="modes" value="" id = "class"  checked onclick = "get_project('')">
+          <label for="class">
+            Class
+          </label>
+
+          <input type="radio" name="modes" value="" id = "packages" onclick = "get_project('','package')">
+          <label for="packages">
+            Packages
+          </label>
+
+          <input type="radio" name="modes" value="" id = "method" onclick = "get_project('','method')">
+          <label for="method">
+            Method
+          </label>
+
+          <input type="radio" name="modes" value="" id = "file" onclick = "get_project('','file')">
+          <label for="file">
+            File
+          </label>
+
+        </nav>
+        <div class="content">
+          <canvas id="myChart" width="400px" height="400px"></canvas>
+          <div class="table-content">
+
+          </div>
+        </div>
+      </aside>
+      <!-- <aside class="right">
+        <ul>
+          <li>
+            <input type="radio" name="modes" value="" id = "class"  checked onclick = "get_project('')">
+            <label for="class">
+              Class
+            </label>
+          </li>
+          <li>
+            <input type="radio" name="modes" value="" id = "packages" onclick = "get_project('','package')">
+            <label for="packages">
+              Packages
+            </label>
+          </li>
+          <li>
+            <input type="radio" name="modes" value="" id = "file" onclick = "get_project('','file')">
+            <label for="file">
+              File
+            </label>
+          </li>
+          <li>
+            <input type="radio" name="modes" value="" id = "methods" onclick = "get_project('','method')">
+            <label for="methods">
+              Methods
+            </label>
+          </li>
+        </ul>
+      </aside> -->
+    </section>
+    <div class="overlay">
+      <div class="overlay-container new-project">
+        <h2>New Project</h2>
+        <form class="" method="post" id = "new-project" enctype="multipart/form-data">
+          <span>Name</span>
+          <input type="text" name="project_name" value="" placeholder = "Eg.,My sample project">
+          <input type="file" name="files[]" value="" id = "files" multiple>
+          <label for="files" class = "input_type_file">Click to choose files</label>
+          <span>Choose Folder</span>
+          <input type="checkbox" name="choose_folder" value="" id = "folder_for_new_project" checked>
+          <label for = "folder_for_new_project" class="input_type_text" id = "folder_value_for_new_project" data-value = "">Choose from the folders created</label>
+          <div class = "dropdown">
+            <div class="f_container" id = "f_dropdown_1">
+              <input type="checkbox" name = "folder" value = "1" id = "dropdown_1" onclick = "show_folder_contents(this,true)">
+              <label for = "dropdown_1" class="folder">
+                Root
+              </label>
+              <div class="folder-container">
+
+              </div>
+            </div>
+          </div>
+          <input type="submit" name="" value="Create Project">
+          <!-- <select class="" name="folder" id = "folder_for_new_project">
+            <option value="root" selected>Root</option>
+          </select> -->
+        </form>
+        <div id="close">
+          <label for="create-project">X</label>
+        </div>
+      </div>
+      <div class="overlay-container new-folder">
+        <h2>New Folder</h2>
+        <form class="" method="post" id = "new-folder">
+          <span>Name</span>
+          <input type="text" name="folder_name" value="" placeholder = "Eg., Sample Project">
+          <input type="submit" name="" value="Create Folder">
+        </form>
+        <div id="close">
+          <label for="create-folder">X</label>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="container">
+        <form class="" action="" method="post"  id = "uploadFiles" name = "uploadFiles"  enctype = "multipart/form-data">
+            <input type="file" name="files[]" value="" id = "files" accept = "" multiple = " multiple">
+            <label for="files" class = "fileContainer"><span>Click to choose the files</span></label>
+            <input type="submit" name="submit" value="Upload">
+        </form>
+    </div> -->
+    <script type="text/javascript" src = "js/show-root-contents.js"></script>
+    <script type="text/javascript" src = "js/Chart.js"></script>
+    <script type="text/javascript" src = "js/newfolder.js"></script>
+    <script type="text/javascript" src = "js/classmode.js"></script>
+    <script type="text/javascript" src = "js/show-folder-contents.js"></script>
+    <script type="text/javascript" src = "js/new-project.js"></script>
+    <script type="text/javascript" src = "js/get-chart.js"></script>
+    <script type="text/javascript" src = "js/helpers.js"></script>
+  </body>
+</html>
