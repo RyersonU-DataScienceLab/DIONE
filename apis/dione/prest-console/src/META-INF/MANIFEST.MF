@@ -1,0 +1,4 @@
+Comment: do not delete this file, it is required for the compilation of PREST into an executable JAR.
+Manifest-Version: 1.0
+Main-Class: console.PrestConsoleApp
+

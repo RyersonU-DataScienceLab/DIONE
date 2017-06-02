@@ -1,0 +1,1 @@
+java -jar linux_mac_run.sh
